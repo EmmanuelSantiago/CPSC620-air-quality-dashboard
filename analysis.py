@@ -53,6 +53,8 @@ def clean_data(df):
     
     # Replace -200 values (missing data indicator) with NaN
     df_clean = df_clean.replace(-200, np.nan)
+    df_clean = df_clean.replace("-200", np.nan)
+    df_clean = df_clean.replace('-200,0', np.nan)
     
     # Convert date and time columns
     df_clean['Date'] = pd.to_datetime(df_clean['Date'], format='%d/%m/%Y')
